@@ -7,12 +7,15 @@ const GlobalStyle = createGlobalStyle`
   padding: 0;
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
+  font-size: 16px;
   list-style: none;
   }
 `
 export const Container = styled.div`
   background-color: ${variaveis.azulEscuroAcinzentado};
-  padding: 32px 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
 `
 
