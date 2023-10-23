@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Container, Titulo } from '../../assets/styles'
+import { Container } from '../../assets/styles'
 import InputMask from 'react-input-mask'
 import * as S from './styles'
 import { useSelector } from 'react-redux'
@@ -13,45 +13,70 @@ const DadosContato = () => {
   )
   const [estaEditando, setEstaEditando] = useState(false)
   const { id } = useParams()
+  const contato = filtrarContato()
+  const [nome, setNome] = useState(contato.nome)
+  const [telefone, setTelefone] = useState(contato.telefone)
+  const [email, setEmail] = useState(contato.email)
 
-  const filtrarContato = (): IContato => {
+  function filtrarContato(): IContato {
     const dadosContato = contatos.filter(
       (contato) => contato.id.toString() === id
     )
     return dadosContato[0]
   }
 
-  const contato = filtrarContato()
+  function cancela() {
+    setEstaEditando(!estaEditando)
+    setNome(contato.nome)
+    setTelefone(contato.telefone)
+    setEmail(contato.email)
+  }
 
   return (
     <Container>
-      <Titulo as="h2">{contato.nome}</Titulo>
-      <S.Legenda htmlFor="telefone">Telefone</S.Legenda>
       <S.Entrada
-        as={InputMask}
-        mask="(99)99999-9999"
-        maskChar="_"
-        type="tel"
-        id="telefone"
-        name="telefone"
-        value={contato.telefone}
-        placeholder="(00)00000-0000"
+        nomeContato={true}
+        type="text"
+        value={nome}
+        onChange={({ target }) => setNome(target.value)}
         disabled={!estaEditando}
       />
-      <S.Legenda htmlFor="email">E-mail</S.Legenda>
-      <S.Entrada
-        type="email"
-        id="email"
-        name="email"
-        value={contato.email}
-        placeholder="exemplo@email.com"
-        disabled={!estaEditando}
-      />
+      <S.FormaDeContato>
+        <S.Legenda htmlFor="telefone">Telefone</S.Legenda>
+        <S.Entrada
+          nomeContato={false}
+          as={InputMask}
+          mask="+\5\5\(99)99999-9999"
+          maskChar="_"
+          type="tel"
+          id="telefone"
+          name="telefone"
+          value={telefone}
+          placeholder="+55(00)00000-0000"
+          onChange={({ target }) => setTelefone(target.value)}
+          disabled={!estaEditando}
+        />
+      </S.FormaDeContato>
+      <S.FormaDeContato>
+        <S.Legenda htmlFor="email">E-mail</S.Legenda>
+        <S.Entrada
+          nomeContato={false}
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          placeholder="exemplo@email.com"
+          onChange={({ target }) => setEmail(target.value)}
+          disabled={!estaEditando}
+        />
+      </S.FormaDeContato>
       <S.BarraAcoes>
         {estaEditando ? (
           <>
             <S.BotaoSalver>Salvar</S.BotaoSalver>
-            <S.BotaoRemoverCancelar>Cancelar</S.BotaoRemoverCancelar>
+            <S.BotaoRemoverCancelar onClick={cancela}>
+              Cancelar
+            </S.BotaoRemoverCancelar>
           </>
         ) : (
           <>

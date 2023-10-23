@@ -21,9 +21,9 @@ const initialState: ContatosState = {
     },
     {
       id: 3,
-      nome: 'Monique',
+      nome: 'Monique Cerqueira de Souza da Costa Dias',
       telefone: '21982192763',
-      email: 'meuemail@email.com'
+      email: 'moniquecerqueiradesouza@hotmail.com.br'
     },
     {
       id: 4,

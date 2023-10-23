@@ -1,19 +1,32 @@
 import { styled } from 'styled-components'
 import variaveis from '../../assets/styles/variaveis'
 
-export const Legenda = styled.label`
-  color: ${variaveis.cinzaMedio};
+type Props = {
+  nomeContato: boolean
+}
+
+export const FormaDeContato = styled.div`
+  width: 55%;
 `
 
-export const Entrada = styled.input`
-  padding: 8px;
-  background-color: ${variaveis.cinzaClaro};
+export const Legenda = styled.label`
+  color: ${variaveis.cinzaMedio};
+  display: block;
+`
+export const Entrada = styled.input<Props>`
+  text-align: ${({ nomeContato }) => (nomeContato ? 'center' : 'start')};
+  font-size: ${({ nomeContato }) => (nomeContato ? '24px' : '')};
+  padding: ${({ nomeContato }) => (nomeContato ? '0' : '8px')};
+  margin: ${({ nomeContato }) => (nomeContato ? '0 0 32px' : '8px 0 24px')};
+  border: ${({ nomeContato }) => (nomeContato ? 'none' : '')};
+  width: 100%;
+  background-color: ${({ nomeContato }) =>
+    nomeContato ? 'transparent' : variaveis.cinzaClaro};
+  color: ${({ nomeContato }) =>
+    nomeContato ? variaveis.cinzaClaro : variaveis.cinzaEscuro};
+  border-color: ${variaveis.cinzaMedio};
   border-radius: 8px;
   font-weight: bold;
-  color: ${variaveis.cinzaEscuro};
-  border-color: ${variaveis.cinzaMedio};
-  margin: 8px 0 24px;
-  width: 100%;
 `
 export const BarraAcoes = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1);

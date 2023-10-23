@@ -24,6 +24,10 @@ export const Container = styled.div`
   width: 90%;
 
   @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
     width: 100%;
   }
 `
