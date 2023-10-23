@@ -1,7 +1,7 @@
 import { RouterProvider } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import GlobalStyle, { Container } from './assets/styles'
+import GlobalStyle, { Principal } from './assets/styles'
 import routes from './routes'
 import { store } from './store'
 
@@ -9,9 +9,9 @@ function App() {
   return (
     <Provider store={store}>
       <GlobalStyle />
-      <Container>
+      <Principal>
         <RouterProvider router={routes} />
-      </Container>
+      </Principal>
     </Provider>
   )
 }

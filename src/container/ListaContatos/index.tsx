@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux'
 
-import * as S from './styles'
+import { ListaNomes } from './styles'
 import { RootReducer } from '../../store'
 import NomeContato from '../../componentes/NomeContato'
 import BarraPesqueisa from '../../componentes/BarraPesquisa/indesx'
+import { Container, Titulo } from '../../assets/styles'
 
 const ListaContatos = () => {
   const { ListaDeContatos, Pesquisar } = useSelector(
@@ -37,19 +38,17 @@ const ListaContatos = () => {
   const contatos = pesquisarContato()
 
   return (
-    <S.ContainerLista>
+    <Container>
       <div>
-        <S.Titulo>Lista de Contatos</S.Titulo>
+        <Titulo>Lista de Contatos</Titulo>
         <BarraPesqueisa />
       </div>
-      <S.ListaNomes>
+      <ListaNomes>
         {contatos.map((contato) => (
-          <S.Contato key={contato.id}>
-            <NomeContato nome={contato.nome} />
-          </S.Contato>
+          <NomeContato key={contato.id} nome={contato.nome} id={contato.id} />
         ))}
-      </S.ListaNomes>
-    </S.ContainerLista>
+      </ListaNomes>
+    </Container>
   )
 }
 

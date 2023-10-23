@@ -1,20 +1,36 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-
-type Contato = {
-  id: number
-  nome: string
-}
+import { IContato } from '../../types'
 
 type ContatosState = {
-  contatos: Contato[]
+  contatos: IContato[]
 }
 
 const initialState: ContatosState = {
   contatos: [
-    { id: 2, nome: 'Mariana' },
-    { id: 1, nome: 'Bruno' },
-    { id: 3, nome: 'Monique' },
-    { id: 4, nome: 'Elizabeth' }
+    {
+      id: 2,
+      nome: 'Mariana',
+      telefone: '21982192763',
+      email: 'meuemail@email.com'
+    },
+    {
+      id: 1,
+      nome: 'Bruno',
+      telefone: '21982192763',
+      email: 'meuemail@email.com'
+    },
+    {
+      id: 3,
+      nome: 'Monique',
+      telefone: '21982192763',
+      email: 'meuemail@email.com'
+    },
+    {
+      id: 4,
+      nome: 'Elizabeth',
+      telefone: '21982192763',
+      email: 'meuemail@email.com'
+    }
   ]
 }
 
@@ -22,7 +38,7 @@ const contatosSlice = createSlice({
   name: 'contatos',
   initialState,
   reducers: {
-    adicionar: (state, action: PayloadAction<Contato>) => {
+    adicionar: (state, action: PayloadAction<IContato>) => {
       const novoContato = action.payload
 
       if (

@@ -1,5 +1,6 @@
 import { styled } from 'styled-components'
 import variaveis from '../../assets/styles/variaveis'
+import { Link } from 'react-router-dom'
 
 export const Letra = styled.div`
   display: flex;
@@ -14,6 +15,18 @@ export const Letra = styled.div`
   height: 30px;
   width: 30px;
 `
+export const Contato = styled.li`
+  background-color: ${variaveis.cinzaEscuro};
+  border-radius: 100px;
+  margin-bottom: 4px;
+`
+export const LinkContato = styled(Link)`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px;
+`
+
 export const Nome = styled.p`
   color: ${variaveis.cinzaClaro};
   font-weight: bold;
