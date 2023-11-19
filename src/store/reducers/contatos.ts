@@ -63,9 +63,15 @@ const contatosSlice = createSlice({
       if (indiceContato >= 0) {
         state.contatos[indiceContato] = action.payload
       }
+    },
+
+    remover: (state, action: PayloadAction<number>) => {
+      state.contatos = [
+        ...state.contatos.filter((contato) => contato.id !== action.payload)
+      ]
     }
   }
 })
 
-export const { adicionar, atualizar } = contatosSlice.actions
+export const { adicionar, atualizar, remover } = contatosSlice.actions
 export default contatosSlice.reducer

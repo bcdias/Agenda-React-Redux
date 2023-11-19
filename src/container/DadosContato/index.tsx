@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { RootReducer } from '../../store'
 import { useParams, useNavigate } from 'react-router-dom'
 import { IContato } from '../../types'
-import { atualizar } from '../../store/reducers/contatos'
+import { atualizar, remover } from '../../store/reducers/contatos'
 
 const DadosContato = () => {
   const { contatos } = useSelector(
@@ -52,6 +52,11 @@ const DadosContato = () => {
     setNome(contato.nome)
     setTelefone(contato.telefone)
     setEmail(contato.email)
+  }
+
+  function removerContato(id: number): void {
+    dispatch(remover(id))
+    navegate('/')
   }
 
   return (
@@ -106,7 +111,9 @@ const DadosContato = () => {
           <>
             <S.Botao onClick={() => navegate('/')}>voltar</S.Botao>
             <S.Botao onClick={() => setEstaEditando(true)}>Editar</S.Botao>
-            <S.BotaoRemoverCancelar>Remover</S.BotaoRemoverCancelar>
+            <S.BotaoRemoverCancelar onClick={() => removerContato(contato.id)}>
+              Remover
+            </S.BotaoRemoverCancelar>
           </>
         )}
       </S.BarraAcoes>
