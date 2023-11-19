@@ -5,8 +5,13 @@ type Props = {
   nomeContato: boolean
 }
 
-export const FormaDeContato = styled.div`
+export const EntradaContainer = styled.div`
   width: 55%;
+
+  @media screen and (max-width: 768px) {
+    width: 70%;
+    margin: 0 auto;
+  }
 `
 
 export const Legenda = styled.label`
@@ -29,7 +34,10 @@ export const Entrada = styled.input<Props>`
   font-weight: bold;
 `
 export const BarraAcoes = styled.div`
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
 `
 export const Botao = styled.button`
   color: ${variaveis.cinzaClaro};

@@ -68,7 +68,7 @@ const DadosContato = () => {
         onChange={({ target }) => setNome(target.value)}
         disabled={!estaEditando}
       />
-      <S.FormaDeContato>
+      <S.EntradaContainer>
         <S.Legenda htmlFor="telefone">Telefone</S.Legenda>
         <S.Entrada
           nomeContato={false}
@@ -83,8 +83,8 @@ const DadosContato = () => {
           onChange={({ target }) => setTelefone(target.value)}
           disabled={!estaEditando}
         />
-      </S.FormaDeContato>
-      <S.FormaDeContato>
+      </S.EntradaContainer>
+      <S.EntradaContainer>
         <S.Legenda htmlFor="email">E-mail</S.Legenda>
         <S.Entrada
           nomeContato={false}
@@ -96,7 +96,7 @@ const DadosContato = () => {
           onChange={({ target }) => setEmail(target.value)}
           disabled={!estaEditando}
         />
-      </S.FormaDeContato>
+      </S.EntradaContainer>
       <S.BarraAcoes>
         {estaEditando ? (
           <>
