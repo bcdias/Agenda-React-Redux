@@ -51,9 +51,21 @@ const contatosSlice = createSlice({
       } else {
         state.contatos.push(novoContato)
       }
+    },
+
+    atualizar: (state, action: PayloadAction<IContato>) => {
+      // Encontrando indice do contato que vai ser atualizado
+      const indiceContato = state.contatos.findIndex(
+        (contato) => contato.id === action.payload.id
+      )
+
+      // Atualizando contato
+      if (indiceContato >= 0) {
+        state.contatos[indiceContato] = action.payload
+      }
     }
   }
 })
 
-export const { adicionar } = contatosSlice.actions
+export const { adicionar, atualizar } = contatosSlice.actions
 export default contatosSlice.reducer

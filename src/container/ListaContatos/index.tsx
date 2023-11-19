@@ -39,10 +39,9 @@ const ListaContatos = () => {
 
   return (
     <Container>
-      <div>
-        <Titulo>Lista de Contatos</Titulo>
-        <BarraPesqueisa />
-      </div>
+      <Titulo>Lista de Contatos</Titulo>
+      <BarraPesqueisa />
+
       <ListaNomes>
         {contatos.map((contato) => (
           <NomeContato key={contato.id} nome={contato.nome} id={contato.id} />
