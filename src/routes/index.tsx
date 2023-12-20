@@ -1,16 +1,21 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import ListaContatos from '../container/ListaContatos'
-import DadosContato from '../container/DadosContato'
+import Principal from '../Paginas/Principal'
+import Edicao from '../Paginas/Edicao'
+import Cadastro from '../Paginas/Cadastro'
 
 const routes = createBrowserRouter([
   {
     path: '/',
-    element: <ListaContatos />
+    element: <Principal />
   },
   {
     path: 'contato/:id',
-    element: <DadosContato />
+    element: <Edicao />
+  },
+  {
+    path: 'cadastro',
+    element: <Cadastro />
   }
 ])
 
