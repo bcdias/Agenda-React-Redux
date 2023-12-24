@@ -5,7 +5,7 @@ const Edicao = () => {
   return (
     <>
       <DadosContato />
-      <BotaoRedondo editando />
+      <BotaoRedondo voltar />
     </>
   )
 }

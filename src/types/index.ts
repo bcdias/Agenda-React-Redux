@@ -1,6 +1,10 @@
 export interface IContato {
-  id: number
+  id: string
   nome: string
   telefone: string
   email: string
+}
+
+export interface IBotaoRedondo {
+  voltar: boolean
 }

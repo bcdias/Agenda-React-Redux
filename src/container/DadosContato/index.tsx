@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { Container } from '../../assets/styles'
+import * as S from '../../assets/styles'
 import InputMask from 'react-input-mask'
-import * as S from './styles'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootReducer } from '../../store'
 import { useParams, useNavigate } from 'react-router-dom'
@@ -54,13 +53,13 @@ const DadosContato = () => {
     setEmail(contato.email)
   }
 
-  function removerContato(id: number): void {
+  function removerContato(id: string): void {
     dispatch(remover(id))
     navegate('/')
   }
 
   return (
-    <Container>
+    <S.Container>
       <S.Entrada
         nomeContato={true}
         type="text"
@@ -73,7 +72,7 @@ const DadosContato = () => {
         <S.Entrada
           nomeContato={false}
           as={InputMask}
-          mask="(99)99999-9999"
+          mask={nome == 'Emergência' ? '999' : '(99)99999-9999'}
           maskChar="_"
           type="tel"
           id="telefone"
@@ -97,27 +96,34 @@ const DadosContato = () => {
           disabled={!estaEditando}
         />
       </S.EntradaContainer>
-      <S.BarraAcoes>
-        {estaEditando ? (
-          <>
-            <S.BotaoSalver onClick={() => salvar(nome, telefone, email)}>
-              Salvar
-            </S.BotaoSalver>
-            <S.BotaoRemoverCancelar onClick={cancelar}>
-              Cancelar
-            </S.BotaoRemoverCancelar>
-          </>
+      <>
+        {nome == 'Emergência' ? (
+          <></>
         ) : (
-          <>
-            <S.Botao onClick={() => navegate('/')}>voltar</S.Botao>
-            <S.Botao onClick={() => setEstaEditando(true)}>Editar</S.Botao>
-            <S.BotaoRemoverCancelar onClick={() => removerContato(contato.id)}>
-              Remover
-            </S.BotaoRemoverCancelar>
-          </>
+          <S.BarraAcoes>
+            {estaEditando ? (
+              <>
+                <S.BotaoSalver onClick={() => salvar(nome, telefone, email)}>
+                  Salvar
+                </S.BotaoSalver>
+                <S.BotaoRemoverCancelar onClick={cancelar}>
+                  Cancelar
+                </S.BotaoRemoverCancelar>
+              </>
+            ) : (
+              <>
+                <S.Botao onClick={() => setEstaEditando(true)}>Editar</S.Botao>
+                <S.BotaoRemoverCancelar
+                  onClick={() => removerContato(contato.id)}
+                >
+                  Remover
+                </S.BotaoRemoverCancelar>
+              </>
+            )}
+          </S.BarraAcoes>
         )}
-      </S.BarraAcoes>
-    </Container>
+      </>
+    </S.Container>
   )
 }
 

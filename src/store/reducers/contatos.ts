@@ -8,28 +8,10 @@ type ContatosState = {
 const initialState: ContatosState = {
   contatos: [
     {
-      id: 2,
-      nome: 'Mariana',
-      telefone: '21982192763',
-      email: 'meuemail@email.com'
-    },
-    {
-      id: 1,
-      nome: 'Bruno',
-      telefone: '21982192763',
-      email: 'meuemail@email.com'
-    },
-    {
-      id: 3,
-      nome: 'Monique Cerqueira de Souza da Costa Dias',
-      telefone: '21982192763',
-      email: 'moniquecerqueiradesouza@hotmail.com.br'
-    },
-    {
-      id: 4,
-      nome: 'Elizabeth',
-      telefone: '21982192763',
-      email: 'meuemail@email.com'
+      id: '2',
+      nome: 'Emergência',
+      telefone: '190',
+      email: 'emergencia@email.com'
     }
   ]
 }
@@ -65,7 +47,7 @@ const contatosSlice = createSlice({
       }
     },
 
-    remover: (state, action: PayloadAction<number>) => {
+    remover: (state, action: PayloadAction<string>) => {
       state.contatos = [
         ...state.contatos.filter((contato) => contato.id !== action.payload)
       ]

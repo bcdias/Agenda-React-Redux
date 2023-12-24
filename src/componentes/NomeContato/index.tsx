@@ -1,11 +1,7 @@
 import * as S from './styles'
+import { IContato } from '../../types/index'
 
-type Props = {
-  nome: string
-  id: number
-}
-
-const NomeContato = ({ nome, id }: Props) => {
+const NomeContato = ({ nome, id }: Pick<IContato, 'id' | 'nome'>) => {
   const letra = nome.slice(0, 1)
 
   return (

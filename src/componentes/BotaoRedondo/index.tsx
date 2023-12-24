@@ -1,12 +1,23 @@
+import { FaPlus, FaChevronLeft } from 'react-icons/fa'
+
+import { IBotaoRedondo } from '../../types'
 import { Circulo } from './styles'
 
-type Props = {
-  editando: boolean
-}
+const BotaoRedondo = ({ voltar }: IBotaoRedondo) => {
+  const destino = voltar ? '/' : 'cadastro'
 
-const BotaoRedondo = ({ editando }: Props) => {
-  const destino = editando ? '/' : 'cadastro'
-
-  return <Circulo to={destino}>+</Circulo>
+  return (
+    <div>
+      {voltar ? (
+        <Circulo voltar to={destino}>
+          <FaChevronLeft size="25" />
+        </Circulo>
+      ) : (
+        <Circulo to={destino}>
+          <FaPlus size="25" />
+        </Circulo>
+      )}
+    </div>
+  )
 }
 export default BotaoRedondo

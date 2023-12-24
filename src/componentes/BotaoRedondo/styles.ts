@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import variaveis from '../../assets/styles/variaveis'
+import { IBotaoRedondo } from '../../types'
 
-export const Circulo = styled(Link)`
-  height: 64px;
-  width: 64px;
+export const Circulo = styled(Link)<IBotaoRedondo>`
+  height: 56px;
+  width: 56px;
   background-color: ${variaveis.cinzaClaro};
   color: ${variaveis.azulEscuroAcinzentado};
   position: fixed;
   bottom: 40px;
-  right: 40px;
+  ${({ voltar }) => (voltar ? 'left: 40px;' : 'right: 40px;')}
   border-radius: 50%;
   display: flex;
   justify-content: center;
