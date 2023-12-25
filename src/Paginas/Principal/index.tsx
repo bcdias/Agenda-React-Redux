@@ -5,7 +5,7 @@ const Principal = () => {
   return (
     <>
       <ListaContatos />
-      <BotaoRedondo />
+      <BotaoRedondo $voltar={false} />
     </>
   )
 }
