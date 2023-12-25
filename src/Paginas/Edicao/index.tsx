@@ -5,7 +5,7 @@ const Edicao = () => {
   return (
     <>
       <DadosContato />
-      <BotaoRedondo voltar />
+      <BotaoRedondo $voltar={true} />
     </>
   )
 }

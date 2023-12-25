@@ -1,10 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import variaveis from './variaveis'
 
-type Props = {
-  nomeContato: boolean
-}
-
 const GlobalStyle = createGlobalStyle`
  *{
   margin: 0;
@@ -61,17 +57,17 @@ export const Legenda = styled.label`
   color: ${variaveis.cinzaMedio};
   display: block;
 `
-export const Entrada = styled.input<Props>`
-  text-align: ${({ nomeContato }) => (nomeContato ? 'center' : 'start')};
-  font-size: ${({ nomeContato }) => (nomeContato ? '24px' : '')};
-  padding: ${({ nomeContato }) => (nomeContato ? '0' : '8px')};
-  margin: ${({ nomeContato }) => (nomeContato ? '0 0 32px' : '8px 0 24px')};
-  border: ${({ nomeContato }) => (nomeContato ? 'none' : '')};
+export const Entrada = styled.input<{ $nomeContato: boolean }>`
+  text-align: ${({ $nomeContato }) => ($nomeContato ? 'center' : 'start')};
+  font-size: ${({ $nomeContato }) => ($nomeContato ? '24px' : '')};
+  padding: ${({ $nomeContato }) => ($nomeContato ? '0' : '8px')};
+  margin: ${({ $nomeContato }) => ($nomeContato ? '0 0 32px' : '8px 0 24px')};
+  border: ${({ $nomeContato }) => ($nomeContato ? 'none' : '')};
   width: 100%;
-  background-color: ${({ nomeContato }) =>
-    nomeContato ? 'transparent' : variaveis.cinzaClaro};
-  color: ${({ nomeContato }) =>
-    nomeContato ? variaveis.cinzaClaro : variaveis.cinzaEscuro};
+  background-color: ${({ $nomeContato }) =>
+    $nomeContato ? 'transparent' : variaveis.cinzaClaro};
+  color: ${({ $nomeContato }) =>
+    $nomeContato ? variaveis.cinzaClaro : variaveis.cinzaEscuro};
   border-color: ${variaveis.cinzaMedio};
   border-radius: 8px;
   font-weight: bold;

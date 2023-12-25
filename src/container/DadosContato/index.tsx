@@ -61,7 +61,7 @@ const DadosContato = () => {
   return (
     <S.Container>
       <S.Entrada
-        nomeContato={true}
+        $nomeContato={true}
         type="text"
         value={nome}
         onChange={({ target }) => setNome(target.value)}
@@ -70,7 +70,7 @@ const DadosContato = () => {
       <S.EntradaContainer>
         <S.Legenda htmlFor="telefone">Telefone</S.Legenda>
         <S.Entrada
-          nomeContato={false}
+          $nomeContato={false}
           as={InputMask}
           mask={nome == 'Emergência' ? '999' : '(99)99999-9999'}
           maskChar="_"
@@ -86,7 +86,7 @@ const DadosContato = () => {
       <S.EntradaContainer>
         <S.Legenda htmlFor="email">E-mail</S.Legenda>
         <S.Entrada
-          nomeContato={false}
+          $nomeContato={false}
           type="email"
           id="email"
           name="email"

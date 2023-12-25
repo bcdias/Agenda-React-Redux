@@ -44,7 +44,7 @@ const NovoContato = () => {
         <S.EntradaContainer>
           <S.Legenda htmlFor="telefone">Nome *</S.Legenda>
           <S.Entrada
-            nomeContato={false}
+            $nomeContato={false}
             type="text"
             placeholder="Insira o nome do novo contato"
             value={nome}
@@ -55,7 +55,7 @@ const NovoContato = () => {
         <S.EntradaContainer>
           <S.Legenda htmlFor="telefone">Telefone *</S.Legenda>
           <S.Entrada
-            nomeContato={false}
+            $nomeContato={false}
             as={InputMask}
             mask="(99)99999-9999"
             maskChar="_"
@@ -71,7 +71,7 @@ const NovoContato = () => {
         <S.EntradaContainer>
           <S.Legenda htmlFor="email">E-mail</S.Legenda>
           <S.Entrada
-            nomeContato={false}
+            $nomeContato={false}
             type="email"
             id="email"
             name="email"

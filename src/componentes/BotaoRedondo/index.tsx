@@ -3,13 +3,13 @@ import { FaPlus, FaChevronLeft } from 'react-icons/fa'
 import { IBotaoRedondo } from '../../types'
 import { Circulo } from './styles'
 
-const BotaoRedondo = ({ voltar }: IBotaoRedondo) => {
-  const destino = voltar ? '/' : 'cadastro'
+const BotaoRedondo = ({ $voltar }: IBotaoRedondo) => {
+  const destino = $voltar ? '/' : 'cadastro'
 
   return (
     <div>
-      {voltar ? (
-        <Circulo voltar to={destino}>
+      {$voltar ? (
+        <Circulo $voltar to={destino}>
           <FaChevronLeft size="25" />
         </Circulo>
       ) : (

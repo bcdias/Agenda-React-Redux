@@ -5,7 +5,7 @@ const Cadastro = () => {
   return (
     <>
       <NovoContato />
-      <BotaoRedondo voltar />
+      <BotaoRedondo $voltar={true} />
     </>
   )
 }

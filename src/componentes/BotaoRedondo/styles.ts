@@ -10,7 +10,7 @@ export const Circulo = styled(Link)<IBotaoRedondo>`
   color: ${variaveis.azulEscuroAcinzentado};
   position: fixed;
   bottom: 40px;
-  ${({ voltar }) => (voltar ? 'left: 40px;' : 'right: 40px;')}
+  ${({ $voltar }) => ($voltar ? 'left: 40px;' : 'right: 40px;')}
   border-radius: 50%;
   display: flex;
   justify-content: center;

@@ -6,5 +6,5 @@ export interface IContato {
 }
 
 export interface IBotaoRedondo {
-  voltar: boolean
+  $voltar: boolean
 }
